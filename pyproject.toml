@@ -1,0 +1,26 @@
+[build-system]
+requires = [
+    "hg+https://www.riverbankcomputing.com/hg/PyQt-builder/@tip",
+    "sip>=6.6.2,<7",
+]
+build-backend = "sipbuild.api"
+
+[tool.sip.metadata]
+name = "ExampleBindings"
+version = "1.0.0"
+summary = "Python example bindings"
+requires-dist = "PyQt5 (>=5.15)"
+
+[tool.sip]
+project-factory = "pyqtbuild:PyQtProject"
+
+[tool.sip.builder]
+jobs = 4
+
+[tool.sip.project]
+sip-files-dir = "sip/"
+verbose = true
+
+[tool.sip.bindings.ExampleBindings]
+pep484-pyi = true
+sip-file = "ExampleBindings.sip"
